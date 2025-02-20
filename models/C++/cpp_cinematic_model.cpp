@@ -1,3 +1,6 @@
+// Implementación de un robot por cables para el control
+// de un efector final en diversas tareas.
+
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -20,15 +23,23 @@ int main() {
     std::cin >> y_efector;
 
     // PLANO
-    matplotlibcpp::xlim(0.0, largo_plano);
-    matplotlibcpp::ylim(0.0, alto_plano);
-    matplotlibcpp::xlabel("Eje X (cm)");
-    matplotlibcpp::ylabel("Eje Y (cm)");
+    matplotlibcpp::xlim(-largo_plano * 0.25, largo_plano * 1.25);
+    matplotlibcpp::ylim(-alto_plano * 0.5, alto_plano * 1.25);
+    matplotlibcpp::xlabel("Eje X (centímetros)");
+    matplotlibcpp::ylabel("Eje Y (centímetros)");
     matplotlibcpp::title("Robot por cables para el control de un efector final");
 
+    // ESTRUCTURA
+    matplotlibcpp::plot({0, 0}, {alto_plano, -(alto_plano / 2)}, "k-");
+    matplotlibcpp::plot({largo_plano, largo_plano}, {alto_plano, -(alto_plano / 2)}, "k-");
+    matplotlibcpp::plot({0, largo_plano}, {alto_plano, alto_plano}, "k-");
+    matplotlibcpp::plot({0, largo_plano}, {0, 0}, "k-");
+    matplotlibcpp::plot({-5, 5}, {-(alto_plano / 2), -(alto_plano / 2)}, "k-");
+    matplotlibcpp::plot({largo_plano - 5, largo_plano + 5}, {-(alto_plano / 2), -(alto_plano / 2)}, "k-");
+
     // LÍMITES DE MOVIMIENTO
-    if (x_efector > (largo_plano - (largo_efector / 2)) || x_efector < (largo_efector / 2) ||
-        y_efector > (alto_plano - (alto_efector / 2)) || y_efector < (alto_efector / 2)) {
+    if (x_efector >= (largo_plano - (largo_efector / 2)) || x_efector <= (largo_efector / 2) ||
+        y_efector >= (alto_plano - (alto_efector / 2)) || y_efector <= (alto_efector / 2)) {
         std::cout << "FUERA DEL LÍMITE" << std::endl;
         return 1;
     }

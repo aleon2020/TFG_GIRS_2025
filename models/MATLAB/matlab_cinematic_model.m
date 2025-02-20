@@ -66,7 +66,7 @@ hold on
         xe = [x3, x4, x2, x1, x3];
         ye = [y3, y4, y2, y1, y3];
         plot(xe, ye, 'black', 'LineWidth', 2)
-        plot(x_efector, y_efector, 'blacko', 'MarkerSize', 5, 'MarkerFaceColor', 'black');
+        plot(x_efector, y_efector, 'blacko', 'MarkerSize', 2, 'MarkerFaceColor', 'black');
 
         % REPRESENTACIÓN RUEDAS
         plot(0, alto_plano, 'blacko', 'MarkerSize', radio_rueda, 'MarkerFaceColor', 'black');

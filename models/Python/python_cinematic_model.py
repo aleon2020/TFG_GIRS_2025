@@ -1,5 +1,6 @@
 # Implementación de un robot por cables para el control
 # de un efector final en diversas tareas.
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -16,18 +17,26 @@ y_efector = float(input('Coordenada y del efector final: '))
 
 # PLANO
 fig, ax = plt.subplots()
-ax.set_xlim([0, largo_plano])
-ax.set_ylim([0, alto_plano])
+ax.set_xlim([-largo_plano * 0.25, largo_plano * 1.25])
+ax.set_ylim([-alto_plano * 0.5, alto_plano * 1.25])
 ax.set_xlabel('Eje X (centímetros)')
 ax.set_ylabel('Eje Y (centímetros)')
 ax.set_title('Robot por cables para el control de un efector final')
 
+# ESTRUCTURA
+ax.plot([0, 0], [alto_plano, -(alto_plano / 2)], 'k', linewidth=5)
+ax.plot([largo_plano, largo_plano], [alto_plano, -(alto_plano / 2)], 'k', linewidth=5)
+ax.plot([0, largo_plano], [alto_plano, alto_plano], 'k', linewidth=5)
+ax.plot([0, largo_plano], [0, 0], 'k', linewidth=5)
+ax.plot([-5, 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', linewidth=5)
+ax.plot([largo_plano - 5, largo_plano + 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', linewidth=5)
+
 # LÍMITES DE MOVIMIENTO
 
-if x_efector > (largo_plano - (largo_efector / 2)) or x_efector < (largo_efector / 2):
+if x_efector >= (largo_plano - (largo_efector / 2)) or x_efector <= (largo_efector / 2):
     print('FUERA DEL LÍMITE')
 
-elif y_efector > (alto_plano - (alto_efector / 2)) or y_efector < (alto_efector / 2):
+elif y_efector >= (alto_plano - (alto_efector / 2)) or y_efector <= (alto_efector / 2):
     print('FUERA DEL LÍMITE')
 
 else:
@@ -50,17 +59,17 @@ else:
 
     # Cable esquina superior izquierda M1 = (M1x, M1y)
     M1x, M1y = 0, alto_plano
-    ax.plot([M1x, x1], [M1y, y1], 'r', linewidth=1)
+    ax.plot([M1x, x1], [M1y, y1], 'r', linewidth=2)
 
     # Cable esquina superior derecha M2 = (M2x, M2y)
     M2x, M2y = largo_plano, alto_plano
-    ax.plot([M2x, x2], [M2y, y2], 'r', linewidth=1)
+    ax.plot([M2x, x2], [M2y, y2], 'r', linewidth=2)
 
     # REPRESENTACIÓN EFECTOR FINAL
     xe = [x3, x4, x2, x1, x3]
     ye = [y3, y4, y2, y1, y3]
     ax.plot(xe, ye, 'black', linewidth=2)
-    ax.plot(x_efector, y_efector, 'ko', markersize=5, markerfacecolor='black')
+    ax.plot(x_efector, y_efector, 'ko', markersize=2, markerfacecolor='black')
 
     # REPRESENTACIÓN RUEDAS
     ax.plot(0, alto_plano, 'ko', markersize=radio_rueda, markerfacecolor='black')
