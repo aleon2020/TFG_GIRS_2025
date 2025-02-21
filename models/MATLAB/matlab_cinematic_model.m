@@ -17,19 +17,27 @@ x_efector = input('Coordenada x del efector final: ');
 y_efector = input('Coordenada y del efector final: ');
 
 % PLANO
-xlim([0, largo_plano]);
-ylim([0, alto_plano]);
+xlim([-largo_plano * 0.25, largo_plano * 1.25]);
+ylim([-alto_plano * 0.5, alto_plano * 1.25]);
 xlabel('Eje X (centímetros)')
 ylabel('Eje Y (centímetros)')
 title('Robot por cables para el control de un efector final')
 hold on
 
+    % ESTRUCTURA
+    plot([0, 0], [alto_plano, -(alto_plano / 2)], 'k', 'LineWidth', 5)
+    plot([largo_plano, largo_plano], [alto_plano, -(alto_plano / 2)], 'k', 'LineWidth', 5)
+    plot([0, largo_plano], [alto_plano, alto_plano], 'k', 'LineWidth', 5)
+    plot([0, largo_plano], [0, 0], 'k', 'LineWidth', 5)
+    plot([-5, 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', 'LineWidth', 5)
+    plot([largo_plano - 5, largo_plano + 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', 'LineWidth', 5)
+
     % LÍMITES DE MOVIMIENTO
 
-    if x_efector > (largo_plano - (largo_efector / 2)) || x_efector < (largo_efector / 2)
+    if x_efector >= (largo_plano - (largo_efector / 2)) || x_efector <= (largo_efector / 2)
         fprintf('FUERA DEL LÍMITE');
 
-    elseif y_efector > (alto_plano - (alto_efector / 2)) || y_efector < (alto_efector / 2)
+    elseif y_efector >= (alto_plano - (alto_efector / 2)) || y_efector <= (alto_efector / 2)
         fprintf('FUERA DEL LÍMITE');
 
     else
