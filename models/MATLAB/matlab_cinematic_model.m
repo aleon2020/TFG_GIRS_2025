@@ -63,11 +63,13 @@ hold on
         % CABLES
 
         % Cable esquina superior izquierda M1 = (M1x, M1y)
-        M1x = 0;      M1y = alto_plano;
+        M1x = 0;      
+        M1y = alto_plano;
         plot([M1x x1], [M1y y1], 'r', 'LineWidth', 1);
 
         % Cable esquina superior derecha M2 = (M2x, M2y)
-        M2x = largo_plano;    M2y = alto_plano;
+        M2x = largo_plano;    
+        M2y = alto_plano;
         plot([M2x x2], [M2y y2], 'r', 'LineWidth', 1);
 
         % REPRESENTACIÓN EFECTOR FINAL

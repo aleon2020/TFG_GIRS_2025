@@ -16,7 +16,8 @@ int main() {
     double radio_rueda = 25;
 
     // SOLICITUD DE COORDENADAS DEL EFECTOR FINAL
-    double x_efector, y_efector;
+    double x_efector;
+    double y_efector;
     std::cout << "Coordenada x del efector final: ";
     std::cin >> x_efector;
     std::cout << "Coordenada y del efector final: ";
@@ -65,11 +66,13 @@ int main() {
     // CABLES
 
     // Cable esquina superior izquierda M1 = (M1x, M1y)
-    double M1x = 0, M1y = alto_plano;
+    double M1x = 0;
+    double M1y = alto_plano;
     matplotlibcpp::plot({M1x, x1}, {M1y, y1}, "r-");
 
     // Cable esquina superior derecha M2 = (M2x, M2y)
-    double M2x = largo_plano, M2y = alto_plano;
+    double M2x = largo_plano;
+    double M2y = alto_plano;
     matplotlibcpp::plot({M2x, x2}, {M2y, y2}, "r-");
 
     // REPRESENTACIÓN EFECTOR FINAL

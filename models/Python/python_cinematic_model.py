@@ -44,25 +44,31 @@ else:
     # EFECTOR FINAL
 
     # Esquina superior izquierda (x1, y1)
-    x1, y1 = x_efector - (largo_efector / 2), y_efector + (alto_efector / 2)
+    x1 = x_efector - (largo_efector / 2)
+    y1 = y_efector + (alto_efector / 2)
 
     # Esquina superior derecha (x2, y2)
-    x2, y2 = x_efector + (largo_efector / 2), y_efector + (alto_efector / 2)
+    x2 = x_efector + (largo_efector / 2)
+    y2 = y_efector + (alto_efector / 2)
 
     # Esquina inferior izquierda (x3, y3)
-    x3, y3 = x_efector - (largo_efector / 2), y_efector - (alto_efector / 2)
+    x3 = x_efector - (largo_efector / 2)
+    y3 = y_efector - (alto_efector / 2)
 
     # Esquina inferior derecha (x4, y4)
-    x4, y4 = x_efector + (largo_efector / 2), y_efector - (alto_efector / 2)
+    x4 = x_efector + (largo_efector / 2)
+    y4 = y_efector - (alto_efector / 2)
 
     # CABLES
 
     # Cable esquina superior izquierda M1 = (M1x, M1y)
-    M1x, M1y = 0, alto_plano
+    M1x = 0
+    M1y = alto_plano
     ax.plot([M1x, x1], [M1y, y1], 'r', linewidth=2)
 
     # Cable esquina superior derecha M2 = (M2x, M2y)
-    M2x, M2y = largo_plano, alto_plano
+    M2x = largo_plano
+    M2y = alto_plano
     ax.plot([M2x, x2], [M2y, y2], 'r', linewidth=2)
 
     # REPRESENTACIÓN EFECTOR FINAL
