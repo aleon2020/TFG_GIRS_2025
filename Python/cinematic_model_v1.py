@@ -15,8 +15,30 @@ alto_efector = 10
 radio_rueda = 25
 
 # SOLICITUD DE LAS COORDENADAS DEL EFECTOR FINAL
+print("\nCOORDENADAS DEL EFECTOR FINAL")
 x_efector = float(input('Coordenada x del efector final: '))
 y_efector = float(input('Coordenada y del efector final: '))
+print()
+
+# VERIFICACIÓN DE LÍMITES
+error = False
+
+if x_efector >= (largo_plano - (largo_efector / 2)):
+    print("FUERA DEL LÍMITE en x =", x_efector)
+    error = True
+elif x_efector <= (largo_efector / 2):
+    print("FUERA DEL LÍMITE en x =", x_efector)
+    error = True
+
+if y_efector >= (alto_plano - (alto_efector / 2)):
+    print("FUERA DEL LÍMITE en y =", y_efector)
+    error = True
+elif y_efector <= (alto_efector / 2):
+    print("FUERA DEL LÍMITE en y =", y_efector)
+    error = True
+
+if error:
+    exit()
 
 # PLANO
 fig, ax = plt.subplots()
@@ -34,68 +56,58 @@ ax.plot([0, largo_plano], [0, 0], 'k', linewidth=5)
 ax.plot([-5, 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', linewidth=5)
 ax.plot([largo_plano - 5, largo_plano + 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', linewidth=5)
 
-# LÍMITES DE MOVIMIENTO
+# EFECTOR FINAL
 
-if x_efector >= (largo_plano - (largo_efector / 2)) or x_efector <= (largo_efector / 2):
-    print('FUERA DEL LÍMITE')
+# Esquina superior izquierda (x1, y1)
+x1 = x_efector - (largo_efector / 2)
+y1 = y_efector + (alto_efector / 2)
 
-elif y_efector >= (alto_plano - (alto_efector / 2)) or y_efector <= (alto_efector / 2):
-    print('FUERA DEL LÍMITE')
+# Esquina superior derecha (x2, y2)
+x2 = x_efector + (largo_efector / 2)
+y2 = y_efector + (alto_efector / 2)
 
-else:
+# Esquina inferior izquierda (x3, y3)
+x3 = x_efector - (largo_efector / 2)
+y3 = y_efector - (alto_efector / 2)
 
-    # EFECTOR FINAL
+# Esquina inferior derecha (x4, y4)
+x4 = x_efector + (largo_efector / 2)
+y4 = y_efector - (alto_efector / 2)
 
-    # Esquina superior izquierda (x1, y1)
-    x1 = x_efector - (largo_efector / 2)
-    y1 = y_efector + (alto_efector / 2)
+# CABLES
 
-    # Esquina superior derecha (x2, y2)
-    x2 = x_efector + (largo_efector / 2)
-    y2 = y_efector + (alto_efector / 2)
+# Cable esquina superior izquierda M1 = (M1x, M1y)
+M1x = 0
+M1y = alto_plano
+ax.plot([M1x, x1], [M1y, y1], 'r', linewidth=2)
 
-    # Esquina inferior izquierda (x3, y3)
-    x3 = x_efector - (largo_efector / 2)
-    y3 = y_efector - (alto_efector / 2)
+# Cable esquina superior derecha M2 = (M2x, M2y)
+M2x = largo_plano
+M2y = alto_plano
+ax.plot([M2x, x2], [M2y, y2], 'r', linewidth=2)
 
-    # Esquina inferior derecha (x4, y4)
-    x4 = x_efector + (largo_efector / 2)
-    y4 = y_efector - (alto_efector / 2)
+# REPRESENTACIÓN EFECTOR FINAL
+xe = [x3, x4, x2, x1, x3]
+ye = [y3, y4, y2, y1, y3]
+ax.plot(xe, ye, 'black', linewidth=2)
+ax.plot(x_efector, y_efector, 'ko', markersize=2, markerfacecolor='black')
 
-    # CABLES
+# REPRESENTACIÓN RUEDAS
+ax.plot(0, alto_plano, 'ko', markersize=radio_rueda, markerfacecolor='black')
+ax.plot(0, alto_plano, 'wo', markersize=radio_rueda / 2, markerfacecolor='black')
+ax.plot(largo_plano, alto_plano, 'ko', markersize=radio_rueda, markerfacecolor='black')
+ax.plot(largo_plano, alto_plano, 'wo', markersize=radio_rueda / 2, markerfacecolor='black')
 
-    # Cable esquina superior izquierda M1 = (M1x, M1y)
-    M1x = 0
-    M1y = alto_plano
-    ax.plot([M1x, x1], [M1y, y1], 'r', linewidth=2)
+# LONGITUDES DE LOS CABLES
+L1 = np.sqrt((x1 - M1x) ** 2 + (y1 - M1y) ** 2)
+L2 = np.sqrt((x2 - M2x) ** 2 + (y2 - M2y) ** 2)
+print("Longitud del cable L1 =", L1, "cm")
+print("Longitud del cable L2 =", L2, "cm")
 
-    # Cable esquina superior derecha M2 = (M2x, M2y)
-    M2x = largo_plano
-    M2y = alto_plano
-    ax.plot([M2x, x2], [M2y, y2], 'r', linewidth=2)
-
-    # REPRESENTACIÓN EFECTOR FINAL
-    xe = [x3, x4, x2, x1, x3]
-    ye = [y3, y4, y2, y1, y3]
-    ax.plot(xe, ye, 'black', linewidth=2)
-    ax.plot(x_efector, y_efector, 'ko', markersize=2, markerfacecolor='black')
-
-    # REPRESENTACIÓN RUEDAS
-    ax.plot(0, alto_plano, 'ko', markersize=radio_rueda, markerfacecolor='black')
-    ax.plot(0, alto_plano, 'wo', markersize=radio_rueda / 2, markerfacecolor='black')
-    ax.plot(largo_plano, alto_plano, 'ko', markersize=radio_rueda, markerfacecolor='black')
-    ax.plot(largo_plano, alto_plano, 'wo', markersize=radio_rueda / 2, markerfacecolor='black')
-
-    # LONGITUDES DE LOS CABLES
-    L1 = np.sqrt((x1 - M1x) ** 2 + (y1 - M1y) ** 2)
-    L2 = np.sqrt((x2 - M2x) ** 2 + (y2 - M2y) ** 2)
-    print("Longitud del cable L1 =", L1, "cm")
-    print("Longitud del cable L2 =", L2, "cm")
-
-    # ÁNGULOS
-    q1 = -np.degrees(np.arctan((x1 - M1x) / (y1 - M1y)))
-    q2 = np.degrees(np.arctan((x2 - M2x) / (y2 - M2y)))
-    print("Ángulo del cable L1 (q1) =", q1, "°")
-    print("Ángulo del cable L2 (q2) =", q2, "°")
+# ÁNGULOS
+q1 = -np.degrees(np.arctan((x1 - M1x) / (y1 - M1y)))
+q2 = np.degrees(np.arctan((x2 - M2x) / (y2 - M2y)))
+print("Ángulo del cable L1 (q1) =", q1, "°")
+print("Ángulo del cable L2 (q2) =", q2, "°")
 
 plt.show()

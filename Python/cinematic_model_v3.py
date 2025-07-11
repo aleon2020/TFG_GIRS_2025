@@ -44,7 +44,6 @@ for i, (x, y) in enumerate(posiciones):
         errores[i+1] = errores_posicion
 
 if errores:
-    print()
     for pos, errs in errores.items():
         print(f"\nERROR EN LA POSICIÓN NÚMERO {pos}")
         for err in errs:

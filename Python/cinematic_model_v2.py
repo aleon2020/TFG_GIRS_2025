@@ -25,6 +25,26 @@ print("\nCOORDENADAS FINALES DEL EFECTOR FINAL")
 x_final = float(input('Coordenada x final del efector final: '))
 y_final = float(input('Coordenada y final del efector final: '))
 
+# LÍMITES DE MOVIMIENTO
+def verificar_limites(x, y):
+    error_msg = ""
+    if x >= (largo_plano - (largo_efector / 2)) or x <= (largo_efector / 2):
+        error_msg += f"\nFUERA DEL LÍMITE en x = {x}"
+    if y >= (alto_plano - (alto_efector / 2)) or y <= (alto_efector / 2):
+        error_msg += f"\nFUERA DEL LÍMITE en y = {y}"
+    return error_msg
+
+error_inicial = verificar_limites(x_inicial, y_inicial)
+if error_inicial:
+    print("\nERROR EN LA POSICIÓN INICIAL" + error_inicial)
+
+error_final = verificar_limites(x_final, y_final)
+if error_final:
+    print("\nERROR EN LA POSICIÓN FINAL" + error_final)
+
+if error_inicial or error_final:
+    exit()
+
 # PLANO
 fig, ax = plt.subplots(figsize=(10, 8))
 ax.set_xlim([-largo_plano * 0.25, largo_plano * 1.25])
@@ -46,19 +66,6 @@ ax.plot(0, alto_plano, 'ko', markersize=radio_rueda, markerfacecolor='black')
 ax.plot(0, alto_plano, 'wo', markersize=radio_rueda / 2, markerfacecolor='black')
 ax.plot(largo_plano, alto_plano, 'ko', markersize=radio_rueda, markerfacecolor='black')
 ax.plot(largo_plano, alto_plano, 'wo', markersize=radio_rueda / 2, markerfacecolor='black')
-
-# LÍMITES DE MOVIMIENTO
-def verificar_limites(x, y):
-    if x >= (largo_plano - (largo_efector / 2)) or x <= (largo_efector / 2):
-        print("\nFUERA DEL LÍMITE en x =", x)
-        return False
-    if y >= (alto_plano - (alto_efector / 2)) or y <= (alto_efector / 2):
-        print("\nFUERA DEL LÍMITE en y =", y)
-        return False
-    return True
-
-if not verificar_limites(x_inicial, y_inicial) or not verificar_limites(x_final, y_final):
-    exit()
 
 # ACTUALIZACIÓN DE LA POSICIÓN DE LOS ELEMENTOS DESPLAZADOS
 efector, = ax.plot([], [], 'black', linewidth=2)
@@ -126,7 +133,7 @@ def init():
 
 # ANIMACIÓN
 def animate(i):
-
+    
     # FRAMES
     t = i / 100
     x = x_inicial + (x_final - x_inicial) * t
@@ -142,7 +149,6 @@ def animate(i):
     centro_efector.set_data(x, y)
 
     # CABLES
-    
     # Cable esquina superior izquierda M1 = (M1x, M1y)
     M1x = 0
     M1y = alto_plano
