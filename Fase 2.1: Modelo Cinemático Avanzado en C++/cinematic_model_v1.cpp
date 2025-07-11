@@ -7,7 +7,7 @@
 #include "matplotlibcpp.h"
 
 // COMPILACIÓN, ENLAZADO Y EJECUCIÓN
-// g++ cinematic_model_v1.cpp -o cinematic_model_v1 -I /usr/include/python3.10/ -lpython3.10
+// g++ cinematic_model_v1.cpp -o cinematic_model_v1 -I /usr/include/python3.12 -I $(python3 -c "import numpy; print(numpy.get_include())") -lpython3.12
 // ./cinematic_model_v1
 
 int main() {
