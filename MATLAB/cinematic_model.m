@@ -1,0 +1,112 @@
+% Implementación de un robot por cables para el control
+% de un efector final en diversas tareas.
+
+% PARÁMETROS
+largo_plano = 100;
+alto_plano = 100;
+largo_efector = 10;
+alto_efector = 10;
+radio_rueda = 25;
+
+% SOLICITUD DE LAS COORDENADAS DEL EFECTOR FINAL
+fprintf('\nCOORDENADAS DEL EFECTOR FINAL\n');
+x_efector = input('Coordenada x del efector final: ');
+y_efector = input('Coordenada y del efector final: ');
+fprintf('\n');
+
+% VERIFICACIÓN DE LÍMITES
+error = false;
+
+if x_efector >= (largo_plano - (largo_efector / 2))
+    fprintf("FUERA DEL LÍMITE en x = %.2f\n", x_efector);
+    error = true;
+elseif x_efector <= (largo_efector / 2)
+    fprintf("FUERA DEL LÍMITE en x = %.2f\n", x_efector);
+    error = true;
+end
+
+if y_efector >= (alto_plano - (alto_efector / 2))
+    fprintf("FUERA DEL LÍMITE en y = %.2f\n", y_efector);
+    error = true;
+elseif y_efector <= (alto_efector / 2)
+    fprintf("FUERA DEL LÍMITE en y = %.2f\n", y_efector);
+    error = true;
+end
+
+if error
+    return;
+end
+
+% FIGURA
+figure;
+hold on;
+axis equal;
+xlim([-largo_plano * 0.25, largo_plano * 1.25]);
+ylim([-alto_plano * 0.5, alto_plano * 1.25]);
+xlabel('Eje X (centímetros)');
+ylabel('Eje Y (centímetros)');
+title('Robot por cables para el control de un efector final');
+
+% ESTRUCTURA
+plot([0, 0], [alto_plano, -(alto_plano / 2)], 'k', 'LineWidth', 5);
+plot([largo_plano, largo_plano], [alto_plano, -(alto_plano / 2)], 'k', 'LineWidth', 5);
+plot([0, largo_plano], [alto_plano, alto_plano], 'k', 'LineWidth', 5);
+plot([0, largo_plano], [0, 0], 'k', 'LineWidth', 5);
+plot([-5, 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', 'LineWidth', 5);
+plot([largo_plano - 5, largo_plano + 5], [-(alto_plano / 2), -(alto_plano / 2)], 'k', 'LineWidth', 5);
+
+% EFECTOR FINAL
+
+% Esquina superior izquierda (x1, y1)
+x1 = x_efector - (largo_efector / 2);
+y1 = y_efector + (alto_efector / 2);
+
+% Esquina superior derecha (x2, y2)
+x2 = x_efector + (largo_efector / 2);
+y2 = y_efector + (alto_efector / 2);
+
+% Esquina inferior izquierda (x3, y3)
+x3 = x_efector - (largo_efector / 2);
+y3 = y_efector - (alto_efector / 2);
+
+% Esquina inferior derecha (x4, y4)
+x4 = x_efector + (largo_efector / 2);
+y4 = y_efector - (alto_efector / 2);
+
+% CABLES
+
+% Cable esquina superior izquierda M1 = (M1x, M1y)
+M1x = 0;
+M1y = alto_plano;
+plot([M1x, x1], [M1y, y1], 'r', 'LineWidth', 2);
+
+% Cable esquina superior derecha M2 = (M2x, M2y)
+M2x = largo_plano;
+M2y = alto_plano;
+plot([M2x, x2], [M2y, y2], 'r', 'LineWidth', 2);
+
+% REPRESENTACIÓN EFECTOR FINAL
+xe = [x3, x4, x2, x1, x3];
+ye = [y3, y4, y2, y1, y3];
+plot(xe, ye, 'black', 'LineWidth', 2);
+plot(x_efector, y_efector, 'ko', 'MarkerSize', 2, 'MarkerFaceColor', 'black');
+
+% REPRESENTACIÓN RUEDAS
+plot(0, alto_plano, 'ko', 'MarkerSize', radio_rueda, 'MarkerFaceColor', 'black');
+plot(0, alto_plano, 'wo', 'MarkerSize', radio_rueda / 2, 'MarkerFaceColor', 'white');
+plot(largo_plano, alto_plano, 'ko', 'MarkerSize', radio_rueda, 'MarkerFaceColor', 'black');
+plot(largo_plano, alto_plano, 'wo', 'MarkerSize', radio_rueda / 2, 'MarkerFaceColor', 'white');
+
+% LONGITUDES DE LOS CABLES
+L1 = sqrt((x1 - M1x)^2 + (y1 - M1y)^2);
+L2 = sqrt((x2 - M2x)^2 + (y2 - M2y)^2);
+fprintf("Longitud del cable L1 = %.2f cm\n", L1);
+fprintf("Longitud del cable L2 = %.2f cm\n", L2);
+
+% ÁNGULOS
+q1 = -rad2deg(atan((x1 - M1x) / (y1 - M1y)));
+q2 = rad2deg(atan((x2 - M2x) / (y2 - M2y)));
+fprintf("Ángulo del cable L1 (q1) = %.2f °\n", q1);
+fprintf("Ángulo del cable L2 (q2) = %.2f °\n", q2);
+
+hold off;
