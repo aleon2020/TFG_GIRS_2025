@@ -6,6 +6,10 @@
 #include <vector>
 #include "matplotlibcpp.h"
 
+// COMPILACIÓN, ENLAZADO Y EJECUCIÓN
+// g++ cinematic_model_v1.cpp -o cinematic_model_v1 -I /usr/include/python3.10/ -lpython3.10
+// ./cinematic_model_v1
+
 int main() {
 
     // PARÁMETROS
@@ -101,6 +105,3 @@ int main() {
     matplotlibcpp::show();
     return 0;
 }
-
-// g++ cpp_cinematic_model.cpp -o cpp_cinematic_model -I /usr/include/python3.10/ -lpython3.10
-// ./cpp_cinematic_model

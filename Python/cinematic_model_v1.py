@@ -4,6 +4,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# COMPILACIÓN, ENLAZADO Y EJECUCIÓN
+# python3 cinematic_model_v1.py
+
 # PARÁMETROS
 largo_plano = 100
 alto_plano = 100
@@ -96,5 +99,3 @@ else:
     print("Ángulo del cable L2 (q2) =", q2, "°")
 
 plt.show()
-
-# python3 python_cinematic_model.py
