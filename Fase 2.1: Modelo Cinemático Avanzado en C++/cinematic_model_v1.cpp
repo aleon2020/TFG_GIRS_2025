@@ -1,5 +1,5 @@
 // Implementación de un robot por cables para el control
-// de un efector final en diversas tareas (versión C++)
+// de un efector final en diversas tareas
 
 #include <iostream>
 #include <cmath>
@@ -125,7 +125,7 @@ main()
     plt::plot(x_cable2, y_cable2, "r-");
 
     // REPRESENTACIÓN EFECTOR FINAL
-    
+
     std::vector<double> xe = {x3, x4, x2, x1, x3};
     std::vector<double> ye = {y3, y4, y2, y1, y3};
     plt::plot(xe, ye, "k-");
