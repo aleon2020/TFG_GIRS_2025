@@ -1,4 +1,4 @@
-# Trabajo de Fin de Grado 2024-2025
+# Trabajo de Fin de Grado 2025-2026
 
 ¡Bienvenido! En este repositorio se encuentran todos los materiales correspondientes al Trabajo de Fin de Grado realizado en el Grado en Ingeniería de Robótica Software.
 
