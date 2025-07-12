@@ -120,6 +120,7 @@ main()
     }
 
     // PLANO
+    plt::figure_size(1500, 1200);
     plt::xlim(-largo_plano * 0.25, largo_plano * 1.25);
     plt::ylim(-alto_plano * 0.5, alto_plano * 1.25);
     plt::xlabel("Eje X (centímetros)");
