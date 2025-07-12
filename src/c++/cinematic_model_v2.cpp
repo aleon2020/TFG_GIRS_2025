@@ -1,5 +1,5 @@
 // Implementación de un robot por cables para el control
-// de un efector final en diversas tareas
+// de un efector final en diversas tareas.
 
 #include <iostream>
 #include <cmath>
