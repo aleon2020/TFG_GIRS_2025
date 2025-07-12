@@ -46,7 +46,7 @@ if error_inicial or error_final:
     exit()
 
 # PLANO
-fig, ax = plt.subplots(figsize=(10, 8))
+fig, ax = plt.subplots(figsize=(20, 16))
 ax.set_xlim([-largo_plano * 0.25, largo_plano * 1.25])
 ax.set_ylim([-alto_plano * 0.5, alto_plano * 1.25])
 ax.set_xlabel('Eje X (centímetros)')
