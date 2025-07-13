@@ -15,6 +15,7 @@ y_efector = input('Coordenada y del efector final: ');
 fprintf('\n');
 
 % VERIFICACIÓN DE LÍMITES
+
 error = false;
 
 if x_efector >= (largo_plano - (largo_efector / 2))
