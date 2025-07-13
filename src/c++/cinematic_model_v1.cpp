@@ -36,6 +36,7 @@ main()
     std::cout << std::endl;
 
     // VERIFICACIÓN DE LÍMITES
+
     bool error = false;
 
     if (x_efector >= (largo_plano - (largo_efector / 2))) {
@@ -70,23 +71,18 @@ main()
     std::vector<double> x_vertical1 = {0, 0};
     std::vector<double> y_vertical1 = {alto_plano, -(alto_plano / 2)};
     plt::plot(x_vertical1, y_vertical1, "k-");
-
     std::vector<double> x_vertical2 = {largo_plano, largo_plano};
     std::vector<double> y_vertical2 = {alto_plano, -(alto_plano / 2)};
     plt::plot(x_vertical2, y_vertical2, "k-");
-
     std::vector<double> x_horizontal1 = {0, largo_plano};
     std::vector<double> y_horizontal1 = {alto_plano, alto_plano};
     plt::plot(x_horizontal1, y_horizontal1, "k-");
-
     std::vector<double> x_horizontal2 = {0, largo_plano};
     std::vector<double> y_horizontal2 = {0, 0};
     plt::plot(x_horizontal2, y_horizontal2, "k-");
-
     std::vector<double> x_base1 = {-5, 5};
     std::vector<double> y_base1 = {-(alto_plano / 2), -(alto_plano / 2)};
     plt::plot(x_base1, y_base1, "k-");
-
     std::vector<double> x_base2 = {largo_plano - 5, largo_plano + 5};
     std::vector<double> y_base2 = {-(alto_plano / 2), -(alto_plano / 2)};
     plt::plot(x_base2, y_base2, "k-");
@@ -126,11 +122,9 @@ main()
     plt::plot(x_cable2, y_cable2, "r-");
 
     // REPRESENTACIÓN EFECTOR FINAL
-
     std::vector<double> xe = {x3, x4, x2, x1, x3};
     std::vector<double> ye = {y3, y4, y2, y1, y3};
     plt::plot(xe, ye, "k-");
-    
     std::vector<double> x_scatter = {x_efector};
     std::vector<double> y_scatter = {y_efector};
     plt::scatter(x_scatter, y_scatter, 2.0);

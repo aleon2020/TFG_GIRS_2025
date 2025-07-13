@@ -20,7 +20,7 @@ const double largo_efector = 10;
 const double alto_efector = 10;
 const double radio_rueda = 25;
 
-// LÍMITES DE MOVIMIENTO
+// VERIFICACIÓN DE LÍMITES
 std::vector<std::string> 
 verificar_limites(double x, double y) 
 {
@@ -40,6 +40,7 @@ calcular_esquinas(double x, double y,
                   double& x1, double& y1, double& x2, double& y2,
                   double& x3, double& y3, double& x4, double& y4)
 {
+
     // Esquina superior izquierda (x1, y1)
     x1 = x - (largo_efector / 2);
     y1 = y + (alto_efector / 2);
@@ -84,12 +85,12 @@ void calcular_cables(double x, double y,
 // FUNCIÓN PRINCIPAL MAIN
 int main() 
 {
+
     // SOLICITUD DEL NÚMERO DE POSICIONES
     std::cout << "\nNÚMERO DE POSICIONES (MÍNIMO 2, MÁXIMO 10): ";
     int num_posiciones;
     std::cin >> num_posiciones;
     num_posiciones = std::max(2, std::min(10, num_posiciones));
-
     std::vector<std::pair<double, double>> posiciones;
     std::map<int, std::vector<std::string>> errores;
 
@@ -105,6 +106,7 @@ int main()
     }
 
     // VERIFICACIÓN DE LÍMITES
+
     for (int i = 0; i < num_posiciones; ++i) {
         auto errores_posicion = verificar_limites(posiciones[i].first, posiciones[i].second);
         if (!errores_posicion.empty()) {
@@ -160,6 +162,7 @@ int main()
     std::vector<double> trayectoria_x, trayectoria_y;
     
     for (int i = 0; i <= 100; ++i) {
+
         // FRAMES
         int segmentos = num_posiciones - 1;
         int frames_por_segmento = 100 / segmentos;
@@ -191,6 +194,7 @@ int main()
         plt::scatter(x_scatter, y_scatter, 2.0);
         
         // CABLES
+        
         // Cable esquina superior izquierda M1 = (M1x, M1y)
         double M1x = 0;
         double M1y = alto_plano;

@@ -13,7 +13,7 @@ namespace plt = matplotlibcpp;
 // g++ cinematic_model_v2.cpp -o cinematic_model_v2 -I /usr/include/python3.12 -I $(python3 -c "import numpy; print(numpy.get_include())") -lpython3.12
 // ./cinematic_model_v2
 
-// LÍMITES DE MOVIMIENTO
+// VERIFICACIÓN DE LÍMITES
 std::string 
 verificar_limites(double x, double y, double largo_plano, double alto_plano, double largo_efector, double alto_efector)
 {
@@ -56,7 +56,6 @@ void calcular_cables(double x, double y, double largo_efector, double alto_efect
                      double largo_plano, double alto_plano,
                      double& L1, double& L2, double& q1, double& q2) 
 {
-
     double x1, y1, x2, y2, x3, y3, x4, y4;
     calcular_esquinas(x, y, largo_efector, alto_efector, x1, y1, x2, y2, x3, y3, x4, y4);
     
@@ -90,14 +89,12 @@ main()
     double radio_rueda = 25;
 
     // SOLICITUD DE LAS COORDENADAS DEL EFECTOR FINAL
-
     std::cout << "\nCOORDENADAS INICIALES DEL EFECTOR FINAL\n";
     double x_inicial, y_inicial;
     std::cout << "Coordenada x inicial del efector final: ";
     std::cin >> x_inicial;
     std::cout << "Coordenada y inicial del efector final: ";
     std::cin >> y_inicial;
-
     std::cout << "\nCOORDENADAS FINALES DEL EFECTOR FINAL\n";
     double x_final, y_final;
     std::cout << "Coordenada x final del efector final: ";
@@ -106,7 +103,6 @@ main()
     std::cin >> y_final;
 
     // VERIFICACIÓN DE LÍMITES
-
     std::string error_inicial = verificar_limites(x_inicial, y_inicial, largo_plano, alto_plano, largo_efector, alto_efector);
     if (!error_inicial.empty()) {
         std::cout << "\nERROR EN LA POSICIÓN INICIAL" << error_inicial << std::endl;
