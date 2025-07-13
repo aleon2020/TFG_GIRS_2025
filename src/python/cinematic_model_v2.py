@@ -25,7 +25,8 @@ print("\nCOORDENADAS FINALES DEL EFECTOR FINAL")
 x_final = float(input('Coordenada x final del efector final: '))
 y_final = float(input('Coordenada y final del efector final: '))
 
-# LÍMITES DE MOVIMIENTO
+# VERIFICACIÓN DE LÍMITES
+
 def verificar_limites(x, y):
     error_msg = ""
     if x >= (largo_plano - (largo_efector / 2)) or x <= (largo_efector / 2):

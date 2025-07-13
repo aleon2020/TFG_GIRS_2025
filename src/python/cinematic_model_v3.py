@@ -29,7 +29,8 @@ for i in range(num_posiciones):
     y = float(input(f'Coordenada y de la posición número {i+1}: '))
     posiciones.append((x, y))
 
-# LÍMITES DE MOVIMIENTO
+# VERIFICACIÓN DE LÍMITES
+
 def verificar_limites(x, y):
     errores = []
     if x >= (largo_plano - (largo_efector / 2)) or x <= (largo_efector / 2):
@@ -163,8 +164,14 @@ def animate(i):
     centro_efector.set_data(x, y)
 
     # CABLES
-    M1x, M1y = 0, alto_plano
-    M2x, M2y = largo_plano, alto_plano
+
+    # Cable esquina superior izquierda M1 = (M1x, M1y)
+    M1x = 0
+    M1y = alto_plano
+
+    # Cable esquina superior derecha M2 = (M2x, M2y)
+    M2x = largo_plano
+    M2y = alto_plano
 
     # ACTUALIZACIÓN DE LA POSICIÓN DE LOS CABLES
     cable1.set_data([M1x, x1], [M1y, y1])

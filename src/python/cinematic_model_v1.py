@@ -21,6 +21,7 @@ y_efector = float(input('Coordenada y del efector final: '))
 print()
 
 # VERIFICACIÓN DE LÍMITES
+
 error = False
 
 if x_efector >= (largo_plano - (largo_efector / 2)):
