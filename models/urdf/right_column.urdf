@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<robot name="right_column">
+
+    <material name="gray">
+        <color rgba="0.5 0.5 0.5 1"/>
+    </material>
+
+    <!--Definition of the right column--> 
+
+    <link name="base">
+
+        <inertial>
+            <origin rpy="0 0 0" xyz="8 0 2.5"/>
+            <mass value="10000.0"/>
+            <inertia ixx="0.166" ixy="0.0" ixz="0.0"
+                                 iyy="0.166" iyz="0.0" 
+                                             izz="0.166"/>
+        </inertial>
+        
+        <visual>        
+            <origin rpy="0 0 0" xyz="8 0 2.5"/>
+            <geometry>
+                <box size="1.0 1.0 5.0"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="8 0 2.5"/>
+            <geometry>
+                <box size="1.0 1.0 5.0"/>
+            </geometry>
+            <material name="gray"/>
+        </collision>
+
+    </link>
+    
+</robot>

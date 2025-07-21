@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<robot name="end_effector">
+
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1"/>
+    </material>
+
+    <!--Definition of the end effector--> 
+
+    <link name="base">
+
+        <inertial>
+            <origin rpy="0 0 0" xyz="4 0 0.5"/>
+            <mass value="100.0"/>
+            <inertia ixx="0.166" ixy="0.0" ixz="0.0"
+                                 iyy="0.166" iyz="0.0" 
+                                             izz="0.166"/>
+        </inertial>
+        
+        <visual>        
+            <origin rpy="0 0 0" xyz="4 0 0.5"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="4 0 0.5"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+            <material name="black"/>
+        </collision>
+
+    </link>
+    
+</robot>
