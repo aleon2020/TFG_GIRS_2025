@@ -194,4 +194,17 @@ print("Longitud del cable L2 =", L2_final, "cm")
 print("Ángulo del cable L1 (q1) =", q1_final, "°")
 print("Ángulo del cable L2 (q2) =", q2_final, "°")
 
+# LONGITUD DE CABLE ELONGADO / RECOGIDO Y ÁNGULO DE GIRO DE CADA POLEA
+print("\nLONGITUD DE CABLE ELONGADO / RECOGIDO Y ÁNGULO DE GIRO DE CADA POLEA")
+L1_movido = L1_final - L1_inicial
+L2_movido = L2_final - L2_inicial
+P1_movido_radianes = L1_movido / radio_rueda
+P2_movido_radianes = L2_movido / radio_rueda
+print("Longitud de cable recogida (-) / elongada (+) por el cable L1 =", L1_movido, "cm")
+print("Longitud de cable recogida (+) / elongada (-) por el cable L2 =", L2_movido, "cm")
+print("Ángulo girado por la polea P1 =", P1_movido_radianes, "radianes")
+print("Ángulo girado por la polea P1 =", np.degrees(P1_movido_radianes), "°")
+print("Ángulo girado por la polea P2 =", P2_movido_radianes, "radianes")
+print("Ángulo girado por la polea P2 =", np.degrees(P2_movido_radianes), "°")
+
 plt.show()
