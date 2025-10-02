@@ -195,15 +195,15 @@ for i, (x, y) in enumerate(posiciones):
 
 # MOSTRAR DATOS DE MOVIMIENTO ENTRE POSICIONES
 for i in range(num_posiciones - 1):
-    print(f"\nLONGITUD DE CABLE ELONGADO / RECOGIDO Y ÁNGULO DE GIRO DE CADA POLEA ENTRE LAS POSICIONES {i+1} Y {i+2}")
+    print(f"\nLONGITUD DE CABLE ELONGADA / RECOGIDA Y ÁNGULO DE GIRO DE CADA POLEA ENTRE LAS POSICIONES {i+1} Y {i+2}")
     L1_inicial, L2_inicial, q1_inicial, q2_inicial = calcular_cables(posiciones[i][0], posiciones[i][1])
     L1_final, L2_final, q1_final, q2_final = calcular_cables(posiciones[i+1][0], posiciones[i+1][1])
     L1_movido = L1_final - L1_inicial
     L2_movido = L2_final - L2_inicial
     P1_movido_radianes = L1_movido / radio_rueda
     P2_movido_radianes = L2_movido / radio_rueda
-    print("Longitud de cable recogida / elongada por el cable L1 =", L1_movido, "cm")
-    print("Longitud de cable recogida / elongada por el cable L2 =", L2_movido, "cm")
+    print("Longitud de cable elongada / recogida por el cable L1 =", L1_movido, "cm")
+    print("Longitud de cable elongada / recogida por el cable L2 =", L2_movido, "cm")
     print("Ángulo girado por la polea P1 =", P1_movido_radianes, "radianes")
     print("Ángulo girado por la polea P1 =", np.degrees(P1_movido_radianes), "°")
     print("Ángulo girado por la polea P2 =", P2_movido_radianes, "radianes")

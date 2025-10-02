@@ -245,6 +245,25 @@ int main()
         std::cout << "Ángulo del cable L2 (q2) = " << q2 << " °" << std::endl;
     }
 
+    // MOSTRAR DATOS DE MOVIMIENTO ENTRE POSICIONES
+    for (int i = 0; i < num_posiciones - 1; i++) {
+        std::cout << "\nLONGITUD DE CABLE ELONGADA / RECOGIDA Y ÁNGULO DE GIRO DE CADA POLEA ENTRE LAS POSICIONES " << (i+1) << " Y " << (i+2) << std::endl;
+        double L1_inicial, L2_inicial, q1_inicial, q2_inicial;
+        double L1_final, L2_final, q1_final, q2_final;
+        calcular_cables(posiciones[i].first, posiciones[i].second, L1_inicial, L2_inicial, q1_inicial, q2_inicial);
+        calcular_cables(posiciones[i+1].first, posiciones[i+1].second, L1_final, L2_final, q1_final, q2_final);
+        double L1_movido = L1_final - L1_inicial;
+        double L2_movido = L2_final - L2_inicial;
+        double P1_movido_radianes = L1_movido / radio_rueda;
+        double P2_movido_radianes = L2_movido / radio_rueda;
+        std::cout << "Longitud de cable elongada / recogida por el cable L1 = " << L1_movido << " cm" << std::endl;
+        std::cout << "Longitud de cable elongada / recogida por el cable L2 = " << L2_movido << " cm" << std::endl;
+        std::cout << "Ángulo girado por la polea P1 = " << P1_movido_radianes << " radianes" << std::endl;
+        std::cout << "Ángulo girado por la polea P1 = " << (P1_movido_radianes * 180.0 / M_PI) << " °" << std::endl;
+        std::cout << "Ángulo girado por la polea P2 = " << P2_movido_radianes << " radianes" << std::endl;
+        std::cout << "Ángulo girado por la polea P2 = " << (P2_movido_radianes * 180.0 / M_PI) << " °" << std::endl;
+    }
+
     plt::show();
     return 0;
 }
