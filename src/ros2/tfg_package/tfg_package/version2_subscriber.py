@@ -24,6 +24,12 @@ class Version2Subscriber(Node):
             self.coordinates_callback,
             10
         )
+        self.pulley_subscription = self.create_subscription(
+            Float64MultiArray,
+            'pulley_parameters',
+            self.pulley_callback,
+            10
+        )
 
     def cable_callback(self, msg):
         if len(msg.data) == 8:
@@ -52,6 +58,21 @@ class Version2Subscriber(Node):
             )
         else:
             self.get_logger().error(f'Coordenadas incorrectas / fuera de rango: {msg.data}')
+
+    def pulley_callback(self, msg):
+        if len(msg.data) == 6:
+            L1_movido, L2_movido, P1_rad, P1_deg, P2_rad, P2_deg = msg.data
+            self.get_logger().info(
+                f'\nPARÁMETROS DE POLEAS RECIBIDOS\n'
+                f'Longitud de cable elongada/recogida L1 = {L1_movido} cm\n'
+                f'Longitud de cable elongada/recogida L2 = {L2_movido} cm\n'
+                f'Ángulo girado por polea P1 = {P1_rad} radianes\n'
+                f'Ángulo girado por polea P1 = {P1_deg} °\n'
+                f'Ángulo girado por polea P2 = {P2_rad} radianes\n'
+                f'Ángulo girado por polea P2 = {P2_deg} °'
+            )
+        else:
+            self.get_logger().error(f'Parámetros de poleas incorrectos / fuera de rango: {msg.data}')
 
 def main(args=None):
     try:

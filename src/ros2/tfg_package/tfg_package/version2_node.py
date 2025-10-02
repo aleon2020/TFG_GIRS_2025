@@ -34,6 +34,7 @@ class Version2Node(Node):
         self.radio_rueda = self.get_parameter('radio_rueda').value
         self.cable_publisher = self.create_publisher(Float64MultiArray, 'cable_parameters', 10)
         self.coordinates_publisher = self.create_publisher(Float64MultiArray, 'effector_coordinates', 10)
+        self.pulley_publisher = self.create_publisher(Float64MultiArray, 'pulley_parameters', 10)
         self.solicitar_coordenadas()
         self.publicar_coordenadas()
         if not self.verificar_limites(self.x_inicial, self.y_inicial) and not self.verificar_limites(self.x_final, self.y_final):
@@ -235,6 +236,25 @@ class Version2Node(Node):
         cable_msg.data = [L1_inicial, L2_inicial, q1_inicial, q2_inicial, 
                          L1_final, L2_final, q1_final, q2_final]
         self.cable_publisher.publish(cable_msg)
+
+        # LONGITUD DE CABLE ELONGADA / RECOGIDA Y ÁNGULO DE GIRO DE CADA POLEA
+        self.get_logger().info("\nLONGITUD DE CABLE ELONGADA / RECOGIDA Y ÁNGULO DE GIRO DE CADA POLEA")
+        L1_movido = L1_final - L1_inicial
+        L2_movido = L2_final - L2_inicial
+        P1_movido_radianes = L1_movido / self.radio_rueda
+        P2_movido_radianes = L2_movido / self.radio_rueda
+        self.get_logger().info(f"Longitud de cable elongada / recogida por el cable L1 = {L1_movido} cm")
+        self.get_logger().info(f"Longitud de cable elongada / recogida por el cable L2 = {L2_movido} cm")
+        self.get_logger().info(f"Ángulo girado por la polea P1 = {P1_movido_radianes} radianes")
+        self.get_logger().info(f"Ángulo girado por la polea P1 = {np.degrees(P1_movido_radianes)} °")
+        self.get_logger().info(f"Ángulo girado por la polea P2 = {P2_movido_radianes} radianes")
+        self.get_logger().info(f"Ángulo girado por la polea P2 = {np.degrees(P2_movido_radianes)} °")
+        
+        # PUBLICACIÓN DE LOS PARÁMETROS DE LAS POLEAS
+        pulley_msg = Float64MultiArray()
+        pulley_msg.data = [L1_movido, L2_movido, P1_movido_radianes, np.degrees(P1_movido_radianes), 
+                          P2_movido_radianes, np.degrees(P2_movido_radianes)]
+        self.pulley_publisher.publish(pulley_msg)
 
         plt.show()
 

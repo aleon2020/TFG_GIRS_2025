@@ -2,6 +2,7 @@
 # de un efector final en diversas tareas.
 import rclpy
 from rclpy.node import Node
+import numpy as np
 from std_msgs.msg import Float64MultiArray
 
 # COMPILACIÓN, ENLAZADO Y EJECUCIÓN
@@ -22,6 +23,12 @@ class Version3Subscriber(Node):
             Float64MultiArray,
             'effector_coordinates',
             self.coordinates_callback,
+            10
+        )
+        self.pulley_subscription = self.create_subscription(
+            Float64MultiArray,
+            'pulley_parameters',
+            self.pulley_callback,
             10
         )
 
@@ -54,6 +61,26 @@ class Version3Subscriber(Node):
             self.get_logger().info(log_msg)
         else:
             self.get_logger().error(f'Coordenadas incorrectas / fuera de rango: {msg.data}')
+
+    def pulley_callback(self, msg):
+        num_movimientos = len(msg.data) // 6
+        if len(msg.data) % 6 == 0 and num_movimientos >= 1:
+            log_msg = '\nPARÁMETROS DE MOVIMIENTO ENTRE POSICIONES RECIBIDOS\n'
+            for i in range(num_movimientos):
+                idx = i * 6
+                L1_movido, L2_movido, P1_movido_radianes, P1_movido_grados, P2_movido_radianes, P2_movido_grados = msg.data[idx:idx+6]
+                log_msg += (
+                    f'\nMOVIMIENTO ENTRE POSICIONES {i+1} Y {i+2}\n'
+                    f'Longitud de cable elongada/recogida L1 = {L1_movido} cm\n'
+                    f'Longitud de cable elongada/recogida L2 = {L2_movido} cm\n'
+                    f'Ángulo girado por la polea P1 = {P1_movido_radianes} radianes\n'
+                    f'Ángulo girado por la polea P1 = {P1_movido_grados} °\n'
+                    f'Ángulo girado por la polea P2 = {P2_movido_radianes} radianes\n'
+                    f'Ángulo girado por la polea P2 = {P2_movido_grados} °\n'
+                )
+            self.get_logger().info(log_msg)
+        else:
+            self.get_logger().error(f'Parámetros de poleas incorrectos / fuera de rango: {msg.data}')
 
 def main(args=None):
     try:
