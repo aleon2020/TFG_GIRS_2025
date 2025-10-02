@@ -2,8 +2,6 @@
 
 ¡Bienvenido! En este repositorio se encuentran todos los materiales correspondientes al Trabajo de Fin de Grado realizado en el Grado en Ingeniería de Robótica Software.
 
-A continuación se detallan brevemente todos los contenidos que se encuentran en este repositorio:
-
 Clona este repositorio ejecutando el siguiente comando:
 
 ```sh
