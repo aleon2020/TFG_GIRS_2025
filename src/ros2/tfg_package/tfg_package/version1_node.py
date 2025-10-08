@@ -23,7 +23,7 @@ class Version1Node(Node):
                 ('alto_plano', 100),
                 ('largo_efector', 10),
                 ('alto_efector', 10),
-                ('radio_rueda', 25)
+                ('radio_rueda', 5)
             ]
         )
         self.largo_plano = self.get_parameter('largo_plano').value

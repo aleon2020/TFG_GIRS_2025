@@ -12,7 +12,7 @@ largo_plano = 100
 alto_plano = 100
 largo_efector = 10
 alto_efector = 10
-radio_rueda = 25
+radio_rueda = 5
 
 # VERIFICACIÓN DE LÍMITES
 def verificar_limites(x, y):

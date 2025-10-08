@@ -86,7 +86,7 @@ main()
     double alto_plano = 100;
     double largo_efector = 10;
     double alto_efector = 10;
-    double radio_rueda = 25;
+    double radio_rueda = 5;
 
     // SOLICITUD DE LAS COORDENADAS DEL EFECTOR FINAL
     std::cout << "\nCOORDENADAS INICIALES DEL EFECTOR FINAL\n";

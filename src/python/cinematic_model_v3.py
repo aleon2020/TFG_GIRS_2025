@@ -10,7 +10,7 @@ largo_plano = 100
 alto_plano = 100
 largo_efector = 10
 alto_efector = 10
-radio_rueda = 25
+radio_rueda = 5
 
 # COMPILACIÓN, ENLAZADO Y EJECUCIÓN
 # python3 cinematic_model_v3.py

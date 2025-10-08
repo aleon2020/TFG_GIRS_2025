@@ -18,7 +18,7 @@ const double largo_plano = 100;
 const double alto_plano = 100;
 const double largo_efector = 10;
 const double alto_efector = 10;
-const double radio_rueda = 25;
+const double radio_rueda = 5;
 
 // VERIFICACIÓN DE LÍMITES
 std::vector<std::string> 

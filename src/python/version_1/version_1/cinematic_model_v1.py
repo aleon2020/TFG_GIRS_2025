@@ -11,7 +11,7 @@ def main():
     alto_plano = 100
     largo_efector = 10
     alto_efector = 10
-    radio_rueda = 25
+    radio_rueda = 5
 
     # SOLICITUD DE LAS COORDENADAS DEL EFECTOR FINAL
     print("\nCOORDENADAS DEL EFECTOR FINAL")

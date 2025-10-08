@@ -12,7 +12,7 @@ def main():
     alto_plano = 100
     largo_efector = 10
     alto_efector = 10
-    radio_rueda = 25
+    radio_rueda = 5
 
     # SOLICITUD DEL NÚMERO DE POSICIONES
     num_posiciones = int(input("\nNÚMERO DE POSICIONES (MÍNIMO 2, MÁXIMO 10): "))

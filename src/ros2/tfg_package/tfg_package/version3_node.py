@@ -24,7 +24,7 @@ class Version3Node(Node):
                 ('alto_plano', 100),
                 ('largo_efector', 10),
                 ('alto_efector', 10),
-                ('radio_rueda', 25),
+                ('radio_rueda', 5),
                 ('max_posiciones', 10)
             ]
         )
