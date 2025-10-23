@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+<robot>
+
+    <!-- 0. RAÍZ -->
+    <link name="base_link"/>
+
+    <!-- 1. BORDE INFERIOR -->
+    <joint name="bottom_edge_joint" type="fixed">
+        <origin xyz="0.50 0.00 0.70" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="bottom_edge"/>
+    </joint>
+    <link name="bottom_edge">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="1.10 0.10 0.10"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.50 0.50 0.50 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="1.10 0.10 0.10"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 2. BORDE SUPERIOR -->
+    <joint name="top_edge_joint" type="fixed">
+        <origin xyz="0.50 0.00 1.70" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="top_edge"/>
+    </joint>
+    <link name="top_edge">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="1.10 0.10 0.10"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.50 0.50 0.50 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="1.10 0.10 0.10"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 3. COLUMNA DERECHA -->
+    <joint name="right_column_joint" type="fixed">
+        <origin xyz="1.00 0.00 0.875" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="right_column"/>
+    </joint>
+    <link name="right_column">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.10 1.75"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.50 0.50 0.50 1.0"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.10 1.75"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 4. COLUMNA IZQUIERDA -->
+    <joint name="left_column_joint" type="fixed">
+        <origin xyz="0.00 0.00 0.875" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="left_column"/>
+    </joint>
+    <link name="left_column">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.10 1.75"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.50 0.50 0.50 1.0"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.10 1.75"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 5. EFECTOR FINAL -->
+    <joint name="end_effector_joint" type="fixed">
+        <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="end_effector"/>
+    </joint>
+    <link name="end_effector">
+        <inertial>
+            <origin xyz="0.50 -0.125 1.20" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.50 -0.125 1.20" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.05 0.10"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.00 0.00 0.00 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.50 -0.125 1.20" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.05 0.10"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 6. PIZARRA -->
+    <joint name="whiteboard_joint" type="fixed">
+        <origin xyz="0.50 0.00 1.20" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="whiteboard"/>
+    </joint>
+    <link name="whiteboard">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="1.00 0.05 1.00"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.00 1.00 1.00 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="1.00 0.05 1.00"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 7. POLEA DERECHA -->
+    <joint name="right_wheel_joint" type="continuous">
+        <origin xyz="1.00 -0.125 1.70" rpy="-1.57 0.00 0.00"/>
+        <axis xyz="0.00 0.00 1.00"/>
+        <parent link="base_link"/>
+        <child link="right_wheel"/>
+    </joint>
+    <link name="right_wheel">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.00 0.00 0.00 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 8. POLEA IZQUIERDA -->
+    <joint name="left_wheel_joint" type="continuous">
+        <origin xyz="0.00 -0.125 1.70" rpy="-1.57 0.00 0.00"/>
+        <axis xyz="0.00 0.00 1.00"/>
+        <parent link="base_link"/>
+        <child link="left_wheel"/>
+    </joint>
+    <link name="left_wheel">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.00 0.00 0.00 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 9. SOPORTE DERECHO -->
+    <joint name="right_support_joint" type="fixed">
+        <origin xyz="1.00 0.00 0.05" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="right_support"/>
+    </joint>
+    <link name="right_support">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.40 0.10"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.50 0.50 0.50 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.40 0.10"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 10. SOPORTE IZQUIERDO -->
+    <joint name="left_support_joint" type="fixed">
+        <origin xyz="0.00 0.00 0.05" rpy="0.00 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="left_support"/>
+    </joint>
+    <link name="left_support">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.40 0.10"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.50 0.50 0.50 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <box size="0.10 0.40 0.10"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 11. SOPORTE POLEA DERECHA -->
+    <joint name="support_right_wheel_joint" type="fixed">
+        <origin xyz="1.00 -0.05 1.70" rpy="-1.57 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="support_right_wheel"/>
+    </joint>
+    <link name="support_right_wheel">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.20" radius="0.025"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.00 0.00 0.00 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.20" radius="0.025"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+    <!-- 12. SOPORTE POLEA IZQUIERDA -->
+    <joint name="support_left_wheel_joint" type="fixed">
+        <origin xyz="0.00 -0.05 1.70" rpy="-1.57 0.00 0.00"/>
+        <parent link="base_link"/>
+        <child link="support_left_wheel"/>
+    </joint>
+    <link name="support_left_wheel">
+        <inertial>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <inertia ixx="1.00" ixy="0.00" ixz="0.00"
+                                iyy="1.00" iyz="0.00" 
+                                           izz="1.00"/>
+            <mass value="5.00"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.20" radius="0.025"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.00 0.00 0.00 1.00"/>
+            </material>
+        </visual>
+        <!-- <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <cylinder length="0.20" radius="0.025"/>
+            </geometry>
+        </collision> -->
+    </link>
+
+</robot>

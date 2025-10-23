@@ -1,0 +1,4 @@
+float32 left_cable_change
+float32 right_cable_change
+float32 left_pulley_angle
+float32 right_pulley_angle
