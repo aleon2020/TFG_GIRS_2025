@@ -1,21 +1,21 @@
-# Trabajo de Fin de Grado 2025-2026
+# Final Degree Project 2025-2026
 
-¡Bienvenido! En este repositorio se encuentran todos los materiales correspondientes al Trabajo de Fin de Grado realizado en el Grado en Ingeniería de Robótica Software.
+Welcome! This repository contains all the materials for the Bachelor's Thesis for the Bachelor's Degree in Software Robotics Engineering.
 
-Clona este repositorio ejecutando el siguiente comando:
+Clone this repository by running the following command:
 
 ```sh
 git clone https://<token>@github.com/aleon2020/TFG_GIRS_2025.git
 ```
 
-**IMPORTANTE**: Añade tu token tal y como se muestra. Esto se hace con el objetivo de no tener que introducir el token en la terminal cada vez que se quiera actualizar el repositorio utilizando el comando 'git pull'.
+**IMPORTANT**: Add your token exactly as shown. This is to avoid having to enter the token in the terminal every time you want to update the repository using the 'git pull' command.
 
-Si ya has clonado este repositorio, ejecuta el siguiente comando antes de que empieces a trabajar con él, ya que pueden haberse añadido nuevos cambios o modificaciones. Esto se hace con el objetivo de asegurarte de que tienes clonada la versión más reciente del repositorio:
+If you've already cloned this repository, run the following command before starting to work with it, as new changes or modifications may have been added. This is to ensure you have cloned the most recent version of the repository:
 
 ```sh
 git pull
 ```
 
-**TEMA**: Implementación de un robot por cables para el control de un efector final en diversas tareas
+**TOPIC**: Implementation of a wired robot for controlling an end effector in various tasks.
 
 **TUTOR**: [Juan Sebastián Cely Gutiérrez](https://github.com/juanscelyg)
