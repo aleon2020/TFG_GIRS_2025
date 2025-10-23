@@ -16,6 +16,6 @@ If you've already cloned this repository, run the following command before start
 git pull
 ```
 
-**TOPIC**: Implementation of a wired robot for controlling an end effector in various tasks.
+**TOPIC**: [Implementation of a wired robot for controlling an end effector in various tasks](https://github.com/aleon2020/TFG_GIRS_2025/wiki).
 
 **TUTOR**: [Juan Sebastián Cely Gutiérrez](https://github.com/juanscelyg)
